@@ -7,8 +7,11 @@ Im Mittelpunkt unserer Projektarbeit steht das Thema „Die Energiekrise“. Um 
 Aus unserer Domänenanalyse resultieren nun folgende Fragen, basierend auf die Probleme der Stakeholder, also primär den privaten Energieverbrauchern:
 
 •	Wie kann man Stromkostenersparnisse maximieren? 
+
 •	Wie kann man Identifizieren, wie ein Zuhause Energieeffizienter wird? 
+
 •	Kann man den Energieverbrauch transparent verfolgen und mit Bezug auf die Realität gestalten, um ihn nachvollziehbar zu machen?
+
 •	Wie kann ermöglicht werden, den Energieverbrauch planbarer zu machen?
 
 # Grundsätzliche Zielsetzung: 
