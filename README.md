@@ -21,17 +21,21 @@ Das System soll den privaten Nutzern wichtige Vorteile gegen die aktuelle Energi
 Aus den vorher definierten Fragen wurden nun im nächsten Schritt konkrete Ziele einer möglichen Lösung definiert:
 
 •	Durch Energiesparmaßnahmen und -Empfehlungen diesbezüglich soll der Energieverbrauch optimiert und damit Stromkostenersparnisse erzielt werden. 
+
 •	Durch grafische und visuelle Darstellungen soll dem Verbraucher der Energieverbrauch, mit Bezug auf die Realität, nachvollziehbar angeboten werden. 
+
 •	Dem Verbraucher soll ermöglicht werden, seinen Energieverbrauch vorrauschauender zu planen, indem er auf aktuelle Informationen wie politischen Entscheidungen, Wettervorhersagen, Tagesabhängigkeiten usw. zugreifen kann. 
 
 Anhand dieser Zielsetzungen konnten wir dann bereits erste Visionen des Projekts und technische Prozesse bzw. grobe Anforderungen ermitteln.
 
 •	Dem Verbraucher soll der Zugriff des Systems aus der Ferne und in Echtzeit angeboten werden, um unter anderem den Energieverbrauch verfolgen zu könne.
+
 •	Einbinden einer Datenbank, um visuelle Darstellung von Ursachen sowie Gegensteuerung des Energieverbrauchs nachvollziehbarer zu machen (z.B. Verbrauch von Elektrogeräten und dazugehörige Daten). 
+
 •	Einbinden von Web-Services wie z.B. dem Wetter, um den Verbraucher zu informieren, welche Energievorteile er aus aktuellem und vorhersehbarem Wetterzustand nutzen kann.
 
 
-Concept Map zum Thema "Energiekrise"
+# Concept Map zum Thema "Energiekrise"
 
 ![EP WiSe22_23 - Energiekrise Domänenmodell](https://user-images.githubusercontent.com/92301157/198920005-c2cc3d8a-bae2-4fc8-99ff-28c07ec04427.jpg)
 
