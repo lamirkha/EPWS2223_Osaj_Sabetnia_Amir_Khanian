@@ -37,7 +37,7 @@ Anhand dieser Zielsetzungen konnten wir dann bereits erste Visionen des Projekts
 
 # Concept Map zum Thema "Energiekrise"
 
-![EP WiSe22_23 - Energiekrise Domänenmodell](https://user-images.githubusercontent.com/92301157/198920005-c2cc3d8a-bae2-4fc8-99ff-28c07ec04427.jpg)
+![EP WiSe22_23 - Energiekrise Domänenmodell](https://user-images.githubusercontent.com/92301157/200119075-b07af5c1-13a3-443e-9524-e4d378ddd250.jpg) 
 
 Quellen:
 
