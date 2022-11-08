@@ -1,10 +1,11 @@
-# EPWS2223_Osaj_Sabetnia_Amir_Khanian
+# Exposé
 
 Im Rahmen des Studiengangs Medieninformatik im Winter-Semester 22/23 und des Moduls Entwicklungsprojekt mit der Spezifikation Mensch-Computer-Interaktion (kurz: MCI) werden wir, Alberije Osaj, Losik Amir Khanian und Mohammedamin Sabetnia, eine zuvor definierte Domäne "Die Energiekrise", welche ein hoch aktuelles und öffentlich disktueirtes Thema ist, in unserer Projektarbeit spezifisch analysieren, behandeln und darauf basierend eine prototypische Systemlösung konzipieren. 
 
-Im Mittelpunkt unserer Projektarbeit steht das Thema „Die Energiekrise“. Um dieses umfangreiche Thema einzugrenzen, damit es nicht den vorgegebenen Rahmen sprengt, haben wir entschieden, uns speziell auf den Stromverbrauch und die damit einhergehenden Stromkosten zu fokkussieren. Bemerkbar machen sich diese vor allem bei den Verbrauchern. Es rufen immer mehr Aktivisten und Politik-Parteien zu landesweiten Demonstrationen mit tausenden Teilnehmern auf, ganz nach dem Motto „solidarisch durch die Krise“. 
+# Problemidentifikation 
+Im Mittelpunkt unserer Projektarbeit steht das Thema „Die Energiekrise“. Um dieses umfangreiche Thema einzugrenzen, damit es nicht den vorgegebenen Rahmen sprengt, haben wir entschieden, uns speziell auf den Stromverbrauch und die damit einhergehenden Stromkosten zu fokkussieren. Bemerkbar machen sich diese vor allem bei den Verbrauchern. Laut dem NDR Ratgeber haben sich diese bereits um das drei- bis vierfache erhöht. Es rufen immer mehr Aktivisten und Politik-Parteien zu landesweiten Demonstrationen mit tausenden Teilnehmern auf, ganz nach dem Motto „solidarisch durch die Krise“. An dieser Stelle ist anzumerken, dass unsere Projektarbeit nicht nur dem privaten Nutzer Vorteile verschaffen, sondern auch dafür sorgen, dass landesweit Energie eingespart werden kann, was sowohl hilfreich für die akute Energiekrise aufgrund des aktuellen Russlands-Ukraine-Konflikt ist, als auch und vor allem für die allgemeine Klimakrise. Hieraus kann man gleichzeitig auch die Relevanz unseres Projektes messen, diese soll sich möglichst in den gesellschaftlichen und wirtschaftlichen Dimensionen ausprägen.
 
-Aus unserer Domänenanalyse resultieren nun folgende Fragen, basierend auf die Probleme der Stakeholder, also primär den privaten Energieverbrauchern:
+Aus unserer Domänenanalyse resultieren nun folgende Fragen, basierend auf die Probleme der Stakeholder, also primär den privaten Verbrauchern:
 
 •	Wie kann man Stromkostenersparnisse maximieren? 
 
@@ -14,15 +15,17 @@ Aus unserer Domänenanalyse resultieren nun folgende Fragen, basierend auf die P
 
 •	Wie kann ermöglicht werden, den Stromverbrauch planbarer zu machen?
 
-Zielsetzung allgemein: 
+# Zielsetzung: 
 
-Das System soll den privaten Nutzern wichtige Vorteile gegen die aktuellen Stromkosten bieten. Das System soll den Nutzern ermöglichen, ihren Energieverbrauch, der üblicherweise nicht mehr als eine Zahl ohne wirklichen Bezug zur Realität im entsprechenden Zähler ist, besser nachvollziehen und verstehen zu können. Dem Nutzer soll die Möglichkeit geboten werden, ihren Stromverbrauchverbrauch besser kontrollieren und bestenfalls einsparen zu können. Das System soll nicht nur dem privaten Nutzer Vorteile verschaffen, sondern auch dafür sorgen, dass landesweit Energie eingespart werden kann, was sowohl hilfreich für die akute Energiekrise aufgrund des aktuellen Russlands-Ukraine-Konflikt ist, als auch und vor allem für die allgemeine Klimakrise. Hieraus kann man gleichzeitig auch die Relevanz unseres Projektes messen, diese soll sich möglichst in den gesellschaftlichen und wirtschaftlichen Dimensionen ausprägen.
+Der Endnutzer unseres Systems soll nach der Nutzung von einem Jahr die Stromkostenersparnisse seines privaten Haushalts um circa 10-20% erhöht haben.
 
-# Zielsetzung konkret: 
+# Projektidee: 
 
-Der Endnutzer unseres Systems soll nach der Nutzung von einem Jahr die Emission seines privaten Haushalts um 15-20% reduziert haben. 
+Anhand dieser Zielsetzung konnten wir dann bereits grobe Anforderungen ermitteln:
 
-Anhand dieser Zielsetzung konnten wir dann bereits erste Visionen des Projekts und grobe Anforderungen ermitteln.
+Das System soll den privaten Nutzern wichtige Vorteile gegen die aktuellen Stromkosten bieten. Das System soll den Nutzern ermöglichen, ihren Energieverbrauch, der üblicherweise nicht mehr als eine Zahl ohne wirklichen Bezug zur Realität im entsprechenden Zähler ist, besser nachvollziehen und verstehen zu können. Dem Nutzer soll die Möglichkeit geboten werden, ihren Stromverbrauchverbrauch besser kontrollieren und bestenfalls einsparen zu können. 
+
+Daraus liesen sich im nächsten Schritt auch erste Visionen und grobe technische Architekturen unseres Systems ableiten:
 
 •	Durch Energiesparmaßnahmen und -Empfehlungen diesbezüglich soll der Energieverbrauch optimiert und damit Stromkostenersparnisse erzielt werden. 
 
@@ -30,7 +33,7 @@ Anhand dieser Zielsetzung konnten wir dann bereits erste Visionen des Projekts u
 
 •	Dem Verbraucher soll ermöglicht werden, seinen Energieverbrauch vorrauschauender zu planen, indem er auf aktuelle Informationen wie politischen Entscheidungen, Wettervorhersagen, Tagesabhängigkeiten usw. zugreifen kann. 
 
-•	Dem Verbraucher soll der Zugriff des Systems aus der Ferne und in Echtzeit angeboten werden, um unter anderem den Energieverbrauch verfolgen oder optimieren zu können.
+•	(Optional) dem Verbraucher soll der Zugriff des Systems aus der Ferne und in Echtzeit angeboten werden, um unter anderem den Energieverbrauch verfolgen oder optimieren zu können.
 
 •	Einbinden von Web-Services wie z.B. dem Wetter, um den Verbraucher zu informieren, welche Energievorteile er aus aktuellem und vorhersehbarem Wetterzustand nutzen kann.
 
