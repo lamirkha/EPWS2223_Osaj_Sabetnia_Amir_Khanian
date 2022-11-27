@@ -7,19 +7,19 @@ Im Mittelpunkt unserer Projektarbeit steht das Thema „Die Energiekrise“. Um 
 
 Aus unserer Domänenanalyse resultieren nun folgende Fragen, basierend auf die Probleme der Stakeholder, also primär den privaten Verbrauchern:
 
-•	Wie kann man Stromkostenersparnisse maximieren? 
+-	Wie kann man Stromkostenersparnisse maximieren? 
 
-•	Wie kann man Identifizieren, wie ein Zuhause Energieeffizienter wird? 
+-	Wie kann man Identifizieren, wie ein Zuhause Energieeffizienter wird? 
 
-•	Kann man den Stromverbrauch transparent verfolgen und mit Bezug auf die Realität gestalten, um ihn nachvollziehbar zu machen?
+-	Kann man den Stromverbrauch transparent verfolgen und mit Bezug auf die Realität gestalten, um ihn nachvollziehbar zu machen?
 
-•	Wie kann ermöglicht werden, den Stromverbrauch planbarer zu machen?
+-	Wie kann ermöglicht werden, den Stromverbrauch planbarer zu machen?
 
-# Zielsetzung: 
+## Zielsetzung: 
 
 Der Endnutzer unseres Systems soll nach der Nutzung von einem Jahr die Stromkostenersparnisse seines privaten Haushalts um circa 10-20% erhöht haben.
 
-# Projektidee: 
+## Projektidee: 
 
 Anhand dieser Zielsetzung konnten wir dann bereits grobe Anforderungen ermitteln:
 
@@ -27,22 +27,22 @@ Das System soll den privaten Nutzern wichtige Vorteile gegen die aktuellen Strom
 
 Daraus liesen sich im nächsten Schritt auch erste Visionen und grobe technische Architekturen unseres Systems ableiten:
 
-•	Durch Energiesparmaßnahmen und -Empfehlungen diesbezüglich soll der Energieverbrauch optimiert und damit Stromkostenersparnisse erzielt werden. 
+-	Durch Energiesparmaßnahmen und -Empfehlungen diesbezüglich soll der Energieverbrauch optimiert und damit Stromkostenersparnisse erzielt werden. 
 
-•	Durch grafische und visuelle Darstellungen soll dem Verbraucher der Energieverbrauch, mit Bezug auf die Realität, nachvollziehbar geboten werden. 
+-	Durch grafische und visuelle Darstellungen soll dem Verbraucher der Energieverbrauch, mit Bezug auf die Realität, nachvollziehbar geboten werden. 
 
-•	Dem Verbraucher soll ermöglicht werden, seinen Energieverbrauch vorrauschauender zu planen, indem er auf aktuelle Informationen wie politischen Entscheidungen, Wettervorhersagen, Tagesabhängigkeiten usw. zugreifen kann. 
+-	Dem Verbraucher soll ermöglicht werden, seinen Energieverbrauch vorrauschauender zu planen, indem er auf aktuelle Informationen wie politischen Entscheidungen, Wettervorhersagen, Tagesabhängigkeiten usw. zugreifen kann. 
 
-•	(Optional) dem Verbraucher soll der Zugriff des Systems aus der Ferne und in Echtzeit angeboten werden, um unter anderem den Energieverbrauch verfolgen oder optimieren zu können.
+-	(Optional) dem Verbraucher soll der Zugriff des Systems aus der Ferne und in Echtzeit angeboten werden, um unter anderem den Energieverbrauch verfolgen oder optimieren zu können.
 
-•	Einbinden von Web-Services wie z.B. dem Wetter, um den Verbraucher zu informieren, welche Energievorteile er aus aktuellem und vorhersehbarem Wetterzustand nutzen kann.
+-	Einbinden von Web-Services wie z.B. dem Wetter, um den Verbraucher zu informieren, welche Energievorteile er aus aktuellem und vorhersehbarem Wetterzustand nutzen kann.
 
 
-# Concept Map zum Thema "Energiekrise"
+## Concept Map zum Thema "Energiekrise"
 
 ![EP WiSe22_23 - Energiekrise Domänenmodell](https://user-images.githubusercontent.com/92301157/200119075-b07af5c1-13a3-443e-9524-e4d378ddd250.jpg) 
 
-Quellen:
+### Quellen:
 
 FAZ, Reuters, 22.10.2022, „Inflation und Energiekosten“:
 
