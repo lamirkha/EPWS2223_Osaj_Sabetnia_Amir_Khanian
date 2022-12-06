@@ -41,7 +41,7 @@ document.querySelector(".suchenbar").addEventListener("keyup", function(event){
        wetter.suchen();
    }
 });
-
+console.log("Test")
 //2.Code
 // liest und speichert den Inhalt HTML-Elements durch ID name
 document.getElementById("text").innerHTML = "";
