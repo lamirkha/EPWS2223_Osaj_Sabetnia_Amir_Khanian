@@ -5,9 +5,6 @@ let wetter = {
    //"https://api.openweathermap.org/data/2.5/weather?q=city&units=metric&appid
    //Die Seite mit der Klasse "Stadt" und APIKey aufrufen.
    fetchwetter: function(stadt){
-    https://api.openweathermap.org/data/2.5/weather?q=ci 
-       + "&units=metric&appid="
-       + this.apiKey
        fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
        + stadt 
        + "&units=metric&appid="
@@ -19,7 +16,7 @@ let wetter = {
    //Von der API Seite die Atributen schreiben und mit den Atributte unseres Systems einbinden
    displaywetter: function(data) {
        const { name } = data;
-       const { icon, description } = data.weather[0];
+       let { icon, description } = data.weather[0];
        const { temp } = data.main;
        const { speed } = data.wind;  
        document.querySelector(".stadt").innerText = name;
@@ -28,11 +25,12 @@ let wetter = {
        document.querySelector(".temperatur").innerText = temp + "°C";
        document.querySelector(".wind").innerText = "Wind Geschwindigkeit " + speed + " Km/h";
        document.querySelector(".wetter").classList.remove("lädt"); 
-       if (description == "Overcast Clouds"){
+       description = description.toLowerCase()
+       if (description.includes("cloud")){
         orangeBlinkend();
-        }else if(wett == 0){
+        }else if(description.includes("fog")){
         rotBlinkend();
-        }else if(Wett < 1){
+        }else if(description.includes("clear") || description.includes("sun")){
         grunBlinkend();
     }
    },
@@ -51,7 +49,6 @@ document.querySelector(".suchenbar").addEventListener("keyup", function(event){
        wetter.suchen();
    }
 });
-console.log("Test")
 //2.Code
 // liest und speichert den Inhalt HTML-Elements durch ID name
 document.getElementById("text").innerHTML = "";
@@ -87,10 +84,3 @@ function lampeAus() {
   document.getElementById('slowLight').style.backgroundColor = "black";
   document.getElementById('goLight').style.backgroundColor = "black";
 }
-  
-  
-    /*wenn Wetter gleich null ist wird dann orange lampe angeschaltet.
-    wenn Wetter kleiner als 0 ist wird dann rote lampe angeschaltet
-    wenn Wetter großer als 0 ist wird dann grune lampe angeschaltet*/
-
-    
