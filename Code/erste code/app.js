@@ -5,6 +5,9 @@ let wetter = {
    //"https://api.openweathermap.org/data/2.5/weather?q=city&units=metric&appid
    //Die Seite mit der Klasse "Stadt" und APIKey aufrufen.
    fetchwetter: function(stadt){
+    https://api.openweathermap.org/data/2.5/weather?q=ci 
+       + "&units=metric&appid="
+       + this.apiKey
        fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
        + stadt 
        + "&units=metric&appid="
@@ -25,6 +28,13 @@ let wetter = {
        document.querySelector(".temperatur").innerText = temp + "°C";
        document.querySelector(".wind").innerText = "Wind Geschwindigkeit " + speed + " Km/h";
        document.querySelector(".wetter").classList.remove("lädt"); 
+       if (description == "Overcast Clouds"){
+        orangeBlinkend();
+        }else if(wett == 0){
+        rotBlinkend();
+        }else if(Wett < 1){
+        grunBlinkend();
+    }
    },
    //Die Funktion suchen erstellen
    suchen: function(){
@@ -78,13 +88,9 @@ function lampeAus() {
   document.getElementById('goLight').style.backgroundColor = "black";
 }
   
+  
     /*wenn Wetter gleich null ist wird dann orange lampe angeschaltet.
     wenn Wetter kleiner als 0 ist wird dann rote lampe angeschaltet
     wenn Wetter großer als 0 ist wird dann grune lampe angeschaltet*/
-    if (document.getElementById('besch') == "Fog"){
-    orangeBlinkend();
-    }else if(beschreibung == "Broken Clouds"){
-    rotBlinkend();
-    }else if(beschreibung == "Clear Sky"){
-    grunBlinkend();
-}
+
+    
