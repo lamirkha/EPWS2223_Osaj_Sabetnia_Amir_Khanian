@@ -40,7 +40,7 @@ Daraus liesen sich im nächsten Schritt auch erste Visionen und grobe technische
 
 ## Concept Map zum Thema "Energiekrise"
 
-![EP WiSe22_23 - Energiekrise Domänenmodell](https://user-images.githubusercontent.com/92301157/200119075-b07af5c1-13a3-443e-9524-e4d378ddd250.jpg) 
+[WS2122_Osaj_Sabetnia_AmirKhanian_Domänenmodell_Soll_Zustand_V2.0.pdf](https://github.com/lamirkha/EPWS2223_Osaj_Sabetnia_Amir_Khanian/files/10202381/WS2122_Osaj_Sabetnia_AmirKhanian_Domanenmodell_Soll_Zustand_V2.0.pdf)
 
 ### Quellen:
 
