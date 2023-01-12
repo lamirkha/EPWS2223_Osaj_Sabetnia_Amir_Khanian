@@ -38,7 +38,7 @@ Daraus liesen sich im nächsten Schritt auch erste Visionen und grobe technische
 -	Einbinden von Web-Services wie z.B. dem Wetter, um den Verbraucher zu informieren, welche Energievorteile er aus aktuellem und vorhersehbarem Wetterzustand nutzen kann.
 
 
-## Concept Map zum Thema "Energiekrise"
+## Domänenmodell zum Thema "Energiekrise"
 
 <img width="1010" alt="Bildschirmfoto 2022-12-11 um 15 09 26" src="https://user-images.githubusercontent.com/92301157/206908580-c9815743-0f40-447d-b128-2da8624c99b2.png">
 
