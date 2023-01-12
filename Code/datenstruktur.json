@@ -1,0 +1,30 @@
+{
+    "Energievorhersage": {
+           "Standort": "Gummersbach",
+           "Temperatur": "5.56 °C",
+           "Beschreibung": "cloud",
+           "Icon": "cloud.png",
+           "Wind": "Wind Geschwindigkeit 4.99 Km/h"
+       },
+       "Spar-Empfehlungen": {
+           "Autor": "Alexian Swarovski",
+           "Datum": "01.01.2023",
+           "Quelle": "http://www.Energiespar.com",
+           "Bewertung": "Sehr gut",
+           "Kommentar": "hoert sich gut an! Dankeschön!"
+       },
+   
+       "Meldungen": {
+           "Titel": "Energie in Tasche",
+           "Bild": "Energie.jpg",
+           "Beschreibung": "wie wir richtig Energie sparen könenn und unsere Geld in Tasche lassen",
+           "Datum": "14.11.2022",
+           "Quelle": "http://www.Energieintasche.com"
+       },
+   
+   
+       "Ampel": {
+           "Farbe": "rot",
+           "Anschalten": true
+       }
+   }
