@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <style>
+      .items {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .item {
+        width: 20%;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Filter items</h1>
+
+    
+    <label for="color-red">
+      <input type="checkbox" id="color-red" value="red" onclick="filterItems()">
+      Red
+    </label>
+
+    <label for="Energie">
+      <input type="checkbox" id="Energie" value="energy" onclick="filterItems()">
+      Energie
+
+      <li class = "item" >
+        <img src="./bild/bild1.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+        <span class="mdl-list__item-primary-content" style="display: inline-block;">      
+          <h3> Solar-Start-up Enpal verdoppelt <br>  Bewertungauf 2,25 Milliarden Euro</h3>       
+        </span>    
+      
+       <p>Der Vermieter von Solaranlagen erlebt derzeit einen Boom und <br>vervierfacht den Umsatz. Das lockt nun neue Investoren.<br> Der Unternehmenswert nimmt deutlich zu.  <a class="mdl-navigation__link" href="https://www.wiwo.de/unternehmen/energie/energie-solar-start-up-enpal-verdoppelt-bewertung-auf-2-25-milliarden-euro/28912306.html" style="color: red;">Ganze artikel lesen</a></p> 
+        </li>
+        
+    </label>
+
+
+    <label for="color-blue">
+      <input type="checkbox" id="color-blue" value="blue" onclick="filterItems()">
+      Blue
+    </label>
+    <label for="color-green">
+      <input type="checkbox" id="color-green" value="green" onclick="filterItems()">
+      Green
+    </label>
+
+    <div class="items">
+      <div class="item" style="background-color: red;">Item 1</div>
+      <div class="item" style="background-color: blue;">Item 2</div>
+      <div class="item" style="background-color: green;">Item 3</div>
+      <div class="item" style="background-color: red;">Item 4</div>
+      <div class="item" style="background-color: blue;">Item 5</div>
+      <div class="item" style="background-color: green;">Item 6</div>
+ <br>
+      <li class = "item" >
+        <img src="./bild/bild1.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+        <span class="mdl-list__item-primary-content" style="display: inline-block;">      
+          <h3> Solar-Start-up Enpal verdoppelt <br>  Bewertungauf 2,25 Milliarden Euro</h3>       
+        </span>    
+      
+       <p>Der Vermieter von Solaranlagen erlebt derzeit einen Boom und <br>vervierfacht den Umsatz. Das lockt nun neue Investoren.<br> Der Unternehmenswert nimmt deutlich zu.  <a class="mdl-navigation__link" href="https://www.wiwo.de/unternehmen/energie/energie-solar-start-up-enpal-verdoppelt-bewertung-auf-2-25-milliarden-euro/28912306.html" style="color: red;">Ganze artikel lesen</a></p> 
+        </li>
+
+
+    </div>
+
+    <script>
+      function filterItems() {
+        var checkedColors = [];
+        var colorRed = document.getElementById("color-red");
+        var colorBlue = document.getElementById("color-blue");
+        var colorGreen = document.getElementById("color-green");
+        
+        var energy = document.getElementById("Energie");
+
+        if (colorRed.checked) {
+          checkedColors.push(colorRed.value);
+        }
+        if (colorBlue.checked) {
+          checkedColors.push(colorBlue.value);
+        }
+        if (colorGreen.checked) {
+          checkedColors.push(colorGreen.value);
+        }
+
+        if (energy.checked) {
+          checkedColors.push(energy.value);
+        }
+
+        var items = document.querySelectorAll(".item");
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+          var itemColor = item.style.backgroundColor;
+
+          if (checkedColors.includes(itemColor)) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
