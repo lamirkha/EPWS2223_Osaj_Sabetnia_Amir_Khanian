@@ -1,0 +1,39 @@
+<html>
+<head>
+  <style>
+    .hide {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+    }
+    
+    #read-more {
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    #read-more.rotate {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <p>This is some text. <span id="read-more">Read More</span></p>
+  <p class="hide">This is additional text that will be hidden until the "Read More" button is clicked.</p>
+  
+  <script>
+    var readMore = document.getElementById("read-more");
+    readMore.addEventListener("click", function() {
+      var text = document.querySelector("p.hide");
+      if (text.style.maxHeight) {
+        text.style.maxHeight = null;
+        readMore.classList.remove("rotate");
+      } else {
+        text.style.maxHeight = text.scrollHeight + "px";
+        readMore.classList.add("rotate");
+      }
+    });
+  </script>
+</body>
+</html>
