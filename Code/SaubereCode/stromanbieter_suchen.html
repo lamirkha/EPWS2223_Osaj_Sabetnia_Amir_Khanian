@@ -1,3 +1,4 @@
+Benjamin, [14.02.2023 21:48]
 <!doctype html>
 <html>
   <head>
@@ -8,8 +9,32 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="./style.css">
-  </head>
+    <title>Name Liste</title> 
+  
+    <style>
+      .product {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .product-image {
+        width: 85px;
+        height: 55px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        margin-left: 30px;
 
+      }
+      .product-rating {
+        margin-right: 10px;
+      }
+      .product-name {
+        font-weight: bold;
+      }
+    </style>
+
+  </head>
   <body>
     <!-- Simple header with fixed tabs. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
@@ -17,28 +42,205 @@ mdl-layout--fixed-tabs">
 <header class="mdl-layout__header">
 <div class="mdl-layout__header-row">
 <!-- Title -->
-<span class="mdl-layout-title" style=" margin: 0px auto; text-align: center; margin-top: 20px; font-size: 1cm; font-family: Righteous;">ENERGEASY</span>
+<span class="mdl-layout-title" style=" margin: 0px auto; text-align: center; margin-top: 20px; font-size: 1cm; font-family: Righteous;">Spare Strom!</span>
 </div>
 <!-- Tabs -->
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-<a href="main.html" class="mdl-layout__tab">Startseite</a>
-<a href="code.html" class="mdl-layout__tab">Energie-Vorhersage</a>
-<a href="stromanbieter_suchen.html" class="mdl-layout__tab is-active">Ökostrom</a>
-<a href="news.html" class="mdl-layout__tab">Aktuelles</a>
-<a href="tipps.html" class="mdl-layout__tab">Spar-Tipps</a>
-</div>
+  <a href="main.html" class="mdl-layout__tab">Startseite</a>
+  <a href="code.html" class="mdl-layout__tab">Energie-Vorhersage</a>
+  <a href="stromanbieter_suchen.html" class="mdl-layout__tab is is-active">Ökostrom</a>
+  <a href="news.html" class="mdl-layout__tab">Aktuelles</a>
+  <a href="tipps.html" class="mdl-layout__tab">Spar-Tipps</a>
+  </div>
 </header>
+
 
 <main class="mdl-layout__content">
   <h3 style= "text-align: center;">hier wird die stromanbietern gesucht</h3>
+  <input id="search-input" type="text" placeholder="Nach Produkt suchen">
+  <button id="search-button">Suchen</button>
+  <button id="sort-rating-asc-button">Nach Bewertung aufsteigend sortieren</button>
+  <button id="sort-rating-desc-button">Nach Bewertung absteigend sortieren</button>
+  <div id="product-list">
+      
+  </div>
+  <form>
+    <label for="Anbieter">Bitte suchen Sie den Anbieter aus:</label>
+    <select id="Anbieter">
+      <option value="E.ON">E.ON</option>
+      <option value="Eprimo">Eprimo</option>
+      <option value="Vattenfall">Vattenfall</option>
+      <option value="EWE">EWE</option>
+      <option value="Entega">Entega</option>
+      <option value="enviaM">enviaM</option>
+      <option value="Yello">Yello</option>
+      <option value="eins">eins</option>
+      <option value="Mainova">Mainova</option>
+      <option value="SWK">SWK</option>
+    </select>
 
-</main>
-</div>
- </body>
+    <br>
+    <br>
 
+    <label for="bewertung">Bitte bewerten Sie den Anbieter:</label>
+    <select id="bewertung">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    
+    <br>
+    <br>
 
- 
+    <label for="comments">Bitte kommentieren Sie:</label>
+    <textarea id="comments"></textarea>
+  </form>
+  <br>
+  <br>
 
+  <button id="submit-button">Bestätigen</button>
 
+  <br>
+  <br>
 
+Benjamin, [14.02.2023 21:48]
+<div id="output"></div>
+ <script>
+      const products = [
+        {
+          name: "E.ON",
+          rating: 3.5,
+          image: "https://img.vxcdn.com/i/partner-energy/c_6914.png?v=0cc437eea6",
+          Link: "https://www.verivox.de/strom/anbieter/eon/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "Eprimo",
+          rating: 4.4,
+          image: "https://img.vxcdn.com/i/partner-energy/c_3034.png?v=29ab5faeaa",
+          Link: "https://www.verivox.de/strom/anbieter/eprimo/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "Vattenfall",
+          rating: 4.8,
+          image: "https://img.vxcdn.com/i/partner-energy/c_1723.png?v=8201aa7a23",
+          Link: "https://www.verivox.de/strom/anbieter/vattenfall/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "EWE",
+          rating: 3.8,
+          image: "https://img.vxcdn.com/i/partner-energy/c_346.png?v=d944eae0c3",
+          Link: "https://www.verivox.de/strom/anbieter/ewe/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "Entega",
+          rating: 4.8,
+          image: "https://img.vxcdn.com/i/partner-energy/c_425.png?v=a80892ab4f",
+          Link: "https://www.verivox.de/strom/anbieter/entega/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "enviaM",
+          rating: 4.2,
+          image: "https://img.vxcdn.com/i/partner-energy/c_470.png?v=7cd9c3fef6",
+          Link: "https://www.verivox.de/strom/anbieter/enviam/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "Yello",
+          rating: 3.9,
+          image: "https://img.vxcdn.com/i/partner-energy/c_25.png?v=34443828dd",
+          Link: "https://www.verivox.de/strom/anbieter/yello/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "eins",
+          rating: 4.0,
+          image: "https://img.vxcdn.com/i/partner-energy/c_6687.png?v=c41c68bfb0",
+          Link: "https://www.verivox.de/strom/anbieter/eins/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "Mainova",
+          rating: 4.5,
+          image: "https://img.vxcdn.com/i/partner-energy/c_190.png?v=080971490e",
+          Link: "https://www.verivox.de/strom/anbieter/mainova/",
+          bundesland: "Hessen"
+        },
+        {
+          name: "SWK",
+          rating: 4.1,
+          image: "https://img.vxcdn.com/i/partner-energy/c_153.png?v=407fe22034",
+          Link: "https://www.verivox.de/strom/anbieter/swk-energie/",
+          bundesland: "Hessen"
+        }
+      ];
+
+      const productList = document.getElementById("product-list");
+      const searchInput = document.getElementById("search-input");
+      const searchButton = document.getElementById("search-button");
+      const sortRatingAscButton = document.getElementById("sort-rating-asc-button");
+      const sortRatingDescButton = document.getElementById("sort-rating-desc-button");
+      const submitButton = document.getElementById("submit-button");
+      const productsSelect = document.getElementById("Anbieter");
+      const ratingSelect = document.getElementById("bewertung");
+      const commentsTextarea = document.getElementById("comments");
+      const outputDiv = document.getElementById("output");
+
+      function displayProducts(productArray) {
+        productList.innerHTML = "";
+        
+        productArray.forEach(product => {
+          const productElement = document.createElement("div");
+          productElement.classList.add("product");
+
+          const imageElement = document.createElement("img");
+          imageElement.classList.add("product-image");
+          imageElement.src = product.image;
+
+          const ratingElement = document.createElement("div");
+          ratingElement.classList.add("product-rating");
+          ratingElement.innerText = product.rating;
+
+          const nameElement = document.createElement("a");
+          nameElement.classList.add("product-name");
+          nameElement.innerText = product.name;
+          nameElement.href = product.Link;
+          
+productElement.appendChild(imageElement);
+          productElement.appendChild(ratingElement);
+          productElement.appendChild(nameElement);
+          productList.appendChild(productElement);
+        });
+      }
+      
+      displayProducts(products);
+
+      searchButton.addEventListener("click", function() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
+        displayProducts(filteredProducts);
+      });
+
+      sortRatingAscButton.addEventListener("click", function() {
+        const sortedProducts = products.sort((a, b) => a.rating - b.rating);
+        displayProducts(sortedProducts);
+      });
+      sortRatingDescButton.addEventListener("click", function() {
+        const sortedProducts = products.sort((a, b) => b.rating - a.rating);
+        displayProducts(sortedProducts);
+      });
+      submitButton.addEventListener("click", function() {
+        const selectedProduct = productsSelect.value;
+        const selectedRating = ratingSelect.value;
+        const comments = commentsTextarea.value;
+        outputDiv.innerHTML = "Vielen Dank für Ihre Bewertung! Sie haben " + selectedProduct + " mit " + selectedRating + " Sternen bewertet und das folgende kommentiert: " + comments +".";
+      });
+    </script>
+  </body>
 </html>
