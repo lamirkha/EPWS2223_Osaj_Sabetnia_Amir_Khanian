@@ -31,6 +31,10 @@
       .product-name {
         font-weight: bold;
       }
+      input{
+        margin-left: 12px;
+      }
+      
     </style>
 
   </head>
@@ -59,16 +63,31 @@ mdl-layout--fixed-tabs">
   <h2 style= "text-align: center; margin-top: 15mm; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(50, 50, 50);"><b>Ökostrom</b></h2>
   <br>
   <br>
+  <input type="checkbox" id="checkbox1" margin-left="12px">Normalstrom
+  <input type="checkbox" id="checkbox2" margin-left="12px">Ökostrom
+  <br>
+  <br>
   <input id="search-input" type="text" placeholder="Nach Produkt suchen">
   <button id="search-button">Suchen</button>
   <button id="sort-rating-asc-button">Nach Bewertung aufsteigend sortieren</button>
   <button id="sort-rating-desc-button">Nach Bewertung absteigend sortieren</button>
+
   <div id="product-list">
+   
+    
+  <ul id="filterList" class="demo-list-item mdl-list" style="position: relative; left: 200px; list-style: none;">
+
+    <li data-option="1" >
+      <img src="https://images.utopia.de/be5PuYets2CyyT2LDsIwqVqNkEty-fJR37APOZ3K5lE/rt:fill/w:297/h:278/g:ce/plain/2016/12/die-besten-oekostromanbieter_z_170824-oekostrom-plus-640x600.jpg" alt="">
+    </li>
       
   </div>
   <form>
     <label for="Anbieter">Bitte suchen Sie den Anbieter aus:</label>
     <select id="Anbieter">
+      <li data-opti>
+
+      </li>
       <option value="E.ON">E.ON</option>
       <option value="Eprimo">Eprimo</option>
       <option value="Vattenfall">Vattenfall</option>
@@ -109,6 +128,26 @@ mdl-layout--fixed-tabs">
 
 <div id="output"></div>
  <script>
+      var checkbox1 = document.getElementById("checkbox1");
+      var checkbox2 = document.getElementById("checkbox2");
+      var ul = document.getElementById("filterList");
+      var li = ul.getElementsByTagName("li");
+      function filterList() {
+    var checkbox1Checked = checkbox1.checked;
+    var checkbox2Checked = checkbox2.checked;
+    for (var i = 0; i < li.length; i++) {
+      var option = li[i].getAttribute("data-option");
+  
+      if ((checkbox1Checked && option === "1") ||
+          (checkbox2Checked && option === "2")) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+  checkbox1.addEventListener("change", filterList);
+  checkbox2.addEventListener("change", filterList);
       const products = [
         {
           name: "E.ON",
@@ -245,3 +284,5 @@ productElement.appendChild(imageElement);
     </script>
   </body>
 </html>
+
+  

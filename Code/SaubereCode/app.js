@@ -23,8 +23,8 @@ let wetter = {
        document.querySelector(".icon").src="http://openweathermap.org/img/wn/" + icon + ".png";
        document.querySelector(".beschreibung").innerText = description;
        document.querySelector(".temperatur").innerText = temp + "°C";
-       document.querySelector(".wind").innerText = "Wind Geschwindigkeit " + speed + " Km/h";
-       document.querySelector(".wetter").classList.remove("lädt"); 
+       document.querySelector(".wind").innerText = "Wind Geschwindigkeit " + speed + " Km/h"; 
+       document.querySelector(".wetter").classList.remove("lädt");
        description = description.toLowerCase()
        if (description.includes("cloud")){
         orangeBlinkend();
@@ -36,8 +36,33 @@ let wetter = {
    },
    //Die Funktion suchen erstellen
    suchen: function(){
-       this.fetchwetter(document.querySelector(".suchenbar").value);
+       this.fetchwetter(document.querySelector(".suchenbar").value)
+       autocompleteStadt();
    },
+};
+ const autocompleteStadt = function() {
+  const input = document.querySelector(".suchenbar");
+  const datalist = document.querySelector("#städte");
+  input.addEventListener("input", function() {
+    const value = input.value;
+    const options = datalist.getElementsByTagName("option");
+    for (let i = 0; i < options.length; i++) {
+      const optionValue = options[i].value;
+      if (optionValue.includes(value)) {
+        options[i].style.display = "block";
+      } else {
+        options[i].style.display = "none";
+      }
+    }
+  });
+  datalist.addEventListener("click", function(event) {
+    const option = event.target;
+    if (option.tagName === "OPTION") {
+      input.value = option.value;
+      wetter.suchen();
+      wetter.autocompleteStadt();
+    }
+  });
 };
    //Die Funktion durch den Click Button betätigen
 document.querySelector(".suchen button").addEventListener("click", function(){
@@ -49,6 +74,7 @@ document.querySelector(".suchenbar").addEventListener("keyup", function(event){
        wetter.suchen();
    }
 });
+
 //2.Code
 // liest und speichert den Inhalt HTML-Elements durch ID name
 document.getElementById("text").innerHTML = "";

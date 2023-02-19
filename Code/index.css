@@ -94,7 +94,7 @@ h1.temp {
 }
 .wetter.lädt:after{
     visibility: visible;
-    content: "lädt...";
+    content: "Bitte geben Sie Ihre gewünschte Stadt ein";
     color: black;
 
 }
