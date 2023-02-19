@@ -1,9 +1,9 @@
 let wetter = {
-   //API Key beantragen
+   //API-Key generieren
    "apiKey": "d6f69e760f7b71f51f421a6f9d21d6bf",
-   //Den Server mit dem API durch fetch verbinden
+   //Den Server mit der API via fetch verbinden
    //"https://api.openweathermap.org/data/2.5/weather?q=city&units=metric&appid
-   //Die Seite mit der Klasse "Stadt" und APIKey aufrufen.
+   //Die Seite mit der Klasse "Stadt" und APIKey aufrufen
    fetchwetter: function(stadt){
        fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
        + stadt 
@@ -13,7 +13,7 @@ let wetter = {
        .then((response) => response.json())
        .then((data) => this.displaywetter(data));
    },
-   //Von der API Seite die Atributen schreiben und mit den Atributte unseres Systems einbinden
+   //Von der API Seite die Attributen schreiben und mit den Attributen unseres Systems einbinden
    displaywetter: function(data) {
        const { name } = data;
        let { icon, description } = data.weather[0];
@@ -34,16 +34,16 @@ let wetter = {
         grunBlinkend();
     }
    },
-   //Die Funktion suchen erstellen
+   //Die Funktion "suchen" erstellen
    suchen: function(){
        this.fetchwetter(document.querySelector(".suchenbar").value);
    },
 };
-   //Die Funktion durch den Click Button betätigen
+   //Die Funktion durch den Klick Button betätigen
 document.querySelector(".suchen button").addEventListener("click", function(){
    wetter.suchen();
 });
-   //Die Funktion durch den Enter drücken betätigen
+   //Die Funktion durch Enter drücken betätigen
 document.querySelector(".suchenbar").addEventListener("keyup", function(event){
    if(event.key == "Enter"){
        wetter.suchen();
@@ -53,10 +53,10 @@ document.querySelector(".suchenbar").addEventListener("keyup", function(event){
 // liest und speichert den Inhalt HTML-Elements durch ID name
 document.getElementById("text").innerHTML = "";
 
-//variable Wetter wird später mit Api Wetter verbunden um richtige Grad zu erhalten
+//Variable Wetter wird später mit Weather-API verbunden um richtigen Temperatur-Wert zu erhalten
 
 
-//Rote Lampe anschlaten
+//Rotes Licht anschalten
 function rotBlinkend() {
     lampeAus(); //alle lampen ausshalten
   document.getElementById('stopLight').style.backgroundColor = "red"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe rot
@@ -64,21 +64,21 @@ function rotBlinkend() {
 
 }
 
-//Orange Lampe anschalten
+//Oranges Licht anschalten
 function orangeBlinkend() {
-    lampeAus(); //alle lampen ausshalten
+    lampeAus(); //alle lampen ausschalten
   document.getElementById('slowLight').style.backgroundColor = "orange"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe orange
   document.getElementById("text").innerHTML = "Strom ist mittel"; //an folgende html Element folgende text ausgeben
 }
 
-//Grüne lampe anschalten
+//Grünes Licht anschalten
 function grunBlinkend() {
-    lampeAus(); //alle lampen ausshalten
+    lampeAus(); //alle lampen ausschalten
   document.getElementById('goLight').style.backgroundColor = "green"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe rot
   document.getElementById("text").innerHTML = "Strom ist gunstig"; //an folgende html Element folgende text ausgeben
 }
 
-//funktion alle lampen ausshalten alle drei lampen
+//Funktion alle drei Lichter der Ampel ausschalten
 function lampeAus() {
   document.getElementById('stopLight').style.backgroundColor = "black"; 
   document.getElementById('slowLight').style.backgroundColor = "black";
