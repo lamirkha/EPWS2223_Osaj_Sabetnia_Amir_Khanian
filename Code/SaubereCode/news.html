@@ -146,38 +146,34 @@ mdl-layout--fixed-tabs">
 
  
  <script>
-  var checkbox1 = document.getElementById("checkbox1");
-  var checkbox2 = document.getElementById("checkbox2");
-  var checkbox3 = document.getElementById("checkbox3");
-  var checkbox4 = document.getElementById("checkbox4");
+var checkboxes = document.querySelectorAll("input[type='checkbox']");
+var ul = document.getElementById("filterList");
+var li = ul.getElementsByTagName("li");
 
-  var ul = document.getElementById("filterList");
-  var li = ul.getElementsByTagName("li");
+
+
+function filterList() {
+  var checkbox1Checked = checkbox1.checked;
+  var checkbox2Checked = checkbox2.checked;
+  var checkbox3Checked = checkbox3.checked;
+  var checkbox4Checked = checkbox4.checked;
   
-  function filterList() {
-    var checkbox1Checked = checkbox1.checked;
-    var checkbox2Checked = checkbox2.checked;
-    var checkbox3Checked = checkbox3.checked;
-    var checkbox4Checked = checkbox4.checked;
-  
-    for (var i = 0; i < li.length; i++) {
-      var option = li[i].getAttribute("data-option");
-  
-      if ((checkbox1Checked && option === "1") ||
-          (checkbox2Checked && option === "2") ||
-          (checkbox3Checked && option === "3") ||
-          (checkbox4Checked && option === "4")) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
+  for (var i = 0; i < li.length; i++) {
+    var option = li[i].getAttribute("data-option");
+    var showItem = ((checkbox1Checked && option === "1") ||
+                    (checkbox2Checked && option === "2") ||
+                    (checkbox3Checked && option === "3") ||
+                    (checkbox4Checked && option === "4"));
+    li[i].style.display = showItem ? "" : "none";
   }
-  
-  checkbox1.addEventListener("change", filterList);
-  checkbox2.addEventListener("change", filterList);
-  checkbox3.addEventListener("change", filterList);
-  checkbox4.addEventListener("change", filterList);
+}
+
+for (var i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].addEventListener("change", filterList);
+}
+
+getSelectedOptions()
+
       </script>
 
 
