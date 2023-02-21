@@ -10,9 +10,23 @@ let wetter = {
        + "&units=metric&appid="
        + this.apiKey
        )
-       .then((response) => response.json())
-       .then((data) => this.displaywetter(data));
-   },
+       .then((response) => {
+        if (!response.ok) {
+            throw new Error("Stadt nicht gefunden.");
+        }
+        return response.json();
+    })
+    .then((data) => this.displaywetter(data))
+    .catch((error) => {
+        document.querySelector(".wetter").classList.remove("lädt");
+        document.querySelector(".stadt").innerText = "";
+        document.querySelector(".beschreibung").innerText = "";
+        document.querySelector(".temperatur").innerText = "";
+        document.querySelector(".wind").innerText = "";
+        document.querySelector("#text").innerText = error.message;
+        lampeAus();
+    });
+},
    //Von der API Seite die Attributen schreiben und mit den Attributen unseres Systems einbinden
    displaywetter: function(data) {
        const { name } = data;
@@ -26,7 +40,7 @@ let wetter = {
        document.querySelector(".wind").innerText = "Wind Geschwindigkeit " + speed + " Km/h"; 
        document.querySelector(".wetter").classList.remove("lädt");
        description = description.toLowerCase()
-       if (description.includes("cloud")){
+       if (description.includes("cloud") || description.includes("cloud")){
         orangeBlinkend();
         }else if(description.includes("fog")){
         rotBlinkend();
@@ -40,7 +54,6 @@ let wetter = {
        autocompleteStadt();
    },
 };
-<<<<<<< HEAD
  const autocompleteStadt = function() {
   const input = document.querySelector(".suchenbar");
   const datalist = document.querySelector("#städte");
@@ -66,9 +79,6 @@ let wetter = {
   });
 };
    //Die Funktion durch den Click Button betätigen
-=======
-   //Die Funktion durch den Klick Button betätigen
->>>>>>> a96e2d79469dba4059e817ff1b1bac7a465238d4
 document.querySelector(".suchen button").addEventListener("click", function(){
    wetter.suchen();
 });

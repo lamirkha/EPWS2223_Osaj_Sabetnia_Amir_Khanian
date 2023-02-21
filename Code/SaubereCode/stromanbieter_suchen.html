@@ -35,6 +35,7 @@
         margin-left: 12px;
       }
       
+      
     </style>
 
   </head>
@@ -69,18 +70,11 @@ mdl-layout--fixed-tabs">
   <br>
   <input id="search-input" type="text" placeholder="Nach Produkt suchen">
   <button id="search-button">Suchen</button>
-  <button id="sort-rating-asc-button">Nach Bewertung aufsteigend sortieren</button>
-  <button id="sort-rating-desc-button">Nach Bewertung absteigend sortieren</button>
+  <button id="sort-rating-desc-button">Nach Bewertung sortieren</button>
 
   <div id="product-list">
-   
     
-  <ul id="filterList" class="demo-list-item mdl-list" style="position: relative; left: 200px; list-style: none;">
-
-    <li data-option="1" >
-      <img src="https://images.utopia.de/be5PuYets2CyyT2LDsIwqVqNkEty-fJR37APOZ3K5lE/rt:fill/w:297/h:278/g:ce/plain/2016/12/die-besten-oekostromanbieter_z_170824-oekostrom-plus-640x600.jpg" alt="">
-    </li>
-      
+   
   </div>
   <form>
     <label for="Anbieter">Bitte suchen Sie den Anbieter aus:</label>
@@ -128,26 +122,9 @@ mdl-layout--fixed-tabs">
 
 <div id="output"></div>
  <script>
-      var checkbox1 = document.getElementById("checkbox1");
-      var checkbox2 = document.getElementById("checkbox2");
-      var ul = document.getElementById("filterList");
-      var li = ul.getElementsByTagName("li");
-      function filterList() {
-    var checkbox1Checked = checkbox1.checked;
-    var checkbox2Checked = checkbox2.checked;
-    for (var i = 0; i < li.length; i++) {
-      var option = li[i].getAttribute("data-option");
-  
-      if ((checkbox1Checked && option === "1") ||
-          (checkbox2Checked && option === "2")) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-  }
-  checkbox1.addEventListener("change", filterList);
-  checkbox2.addEventListener("change", filterList);
+     
+     
+
       const products = [
         {
           name: "E.ON",
@@ -224,14 +201,15 @@ mdl-layout--fixed-tabs">
       const productList = document.getElementById("product-list");
       const searchInput = document.getElementById("search-input");
       const searchButton = document.getElementById("search-button");
-      const sortRatingAscButton = document.getElementById("sort-rating-asc-button");
       const sortRatingDescButton = document.getElementById("sort-rating-desc-button");
       const submitButton = document.getElementById("submit-button");
       const productsSelect = document.getElementById("Anbieter");
       const ratingSelect = document.getElementById("bewertung");
       const commentsTextarea = document.getElementById("comments");
-      const outputDiv = document.getElementById("output");
-
+      
+  
+  
+  
       function displayProducts(productArray) {
         productList.innerHTML = "";
         
@@ -267,10 +245,6 @@ productElement.appendChild(imageElement);
         displayProducts(filteredProducts);
       });
 
-      sortRatingAscButton.addEventListener("click", function() {
-        const sortedProducts = products.sort((a, b) => a.rating - b.rating);
-        displayProducts(sortedProducts);
-      });
       sortRatingDescButton.addEventListener("click", function() {
         const sortedProducts = products.sort((a, b) => b.rating - a.rating);
         displayProducts(sortedProducts);
@@ -284,5 +258,3 @@ productElement.appendChild(imageElement);
     </script>
   </body>
 </html>
-
-  
