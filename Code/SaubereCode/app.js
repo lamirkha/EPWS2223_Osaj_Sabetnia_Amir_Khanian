@@ -100,7 +100,7 @@ document.getElementById("text").innerHTML = "";
 function rotBlinkend() {
     lampeAus(); //alle lampen ausshalten
   document.getElementById('stopLight').style.backgroundColor = "red"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe rot
-  document.getElementById("text").innerHTML = "Strom ist zu teuer"; //an folgende html Element folgende text ausgeben
+  document.getElementById("text").innerHTML = "Kaum erneubare Energie"; //an folgende html Element folgende text ausgeben
 
 }
 
@@ -108,14 +108,14 @@ function rotBlinkend() {
 function orangeBlinkend() {
     lampeAus(); //alle lampen ausschalten
   document.getElementById('slowLight').style.backgroundColor = "orange"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe orange
-  document.getElementById("text").innerHTML = "Strom ist mittel"; //an folgende html Element folgende text ausgeben
+  document.getElementById("text").innerHTML = "Mittelmäßige erneubare Energie"; //an folgende html Element folgende text ausgeben
 }
 
 //Grünes Licht anschalten
 function grunBlinkend() {
     lampeAus(); //alle lampen ausschalten
   document.getElementById('goLight').style.backgroundColor = "green"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe rot
-  document.getElementById("text").innerHTML = "Strom ist gunstig"; //an folgende html Element folgende text ausgeben
+  document.getElementById("text").innerHTML = "Viel erneubare Energie"; //an folgende html Element folgende text ausgeben
 }
 
 //Funktion alle drei Lichter der Ampel ausschalten
