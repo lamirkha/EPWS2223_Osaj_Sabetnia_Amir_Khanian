@@ -78,6 +78,98 @@ body {
     overflow-y: hidden;
     overflow-x: scroll
 }
+
+.suchen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 40px;
+    width: 40px;
+    outline: none;
+    background: dimgray;
+    color: white;
+    cursor: pointer;
+}
+
+input.suchenbar {
+    border: none;
+    outline: none;
+    padding: 0.5em 1em;
+    border-radius: 24px;
+    background: dimgray;
+    color: white;
+    font-family: inherit;
+    font-size: 110%;
+    width: calc(100% - 100px);
+}
+
+.beschreibung {
+    text-transform: capitalize;
+}
+
+button:hover {
+    background: darkgray;
+}
+h1.temp {
+    margin: 0;
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.wetter.lädt{
+    visibility: hidden;
+}
+.wetter.lädt:after{
+    visibility: visible;
+    content: "Bitte geben Sie ihre gewünschte Stadt ein";
+    color: black;
+
+}
+.button {
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 90px 40px;
+    cursor: pointer;
+  }
+  
+  #ampel-licht {
+    height: 550px;
+    width: 200px;
+    float: left;
+    background-color: #333;
+    border-radius: 40px;
+    margin: 30px 0;
+    padding: 20px;
+    
+  }
+  
+  .lamp {
+    height: 150px;
+    width: 150px;
+    background-color: #111;
+    border-radius: 50%;
+    box-shadow: inset 3px 4px 7px black;
+  }
+  
+  h2 {
+     font-size: 22pt;
+      display: inline-block; 
+      width: 100%;
+      height: 200px;
+      vertical-align: middle; 
+      text-align:left;
+  }
     </style>
 </head>
 
@@ -88,7 +180,7 @@ mdl-layout--fixed-tabs">
 <header class="mdl-layout__header">
 <div class="mdl-layout__header-row">
 <!-- Title -->
-<img src="./bild/Group 61.png" style="margin: 0px auto; text-align: center; height: 55dp; width: 299dp;  ">
+<img src="./bild/Group 67.png" style="margin: 0px auto; text-align: center; height: 50px; width: 299dp;">
 </div>
 <!-- Tabs -->
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
@@ -149,5 +241,132 @@ mdl-layout--fixed-tabs">
     
 
 </body>
+<script>
+    let wetter = {
+   //API-Key generieren
+   "apiKey": "d6f69e760f7b71f51f421a6f9d21d6bf",
+   //Den Server mit der API via fetch verbinden
+   //"https://api.openweathermap.org/data/2.5/weather?q=city&units=metric&appid
+   //Die Seite mit der Klasse "Stadt" und APIKey aufrufen
+   fetchwetter: function(stadt){
+       fetch("https://api.openweathermap.org/data/2.5/weather?q=" 
+       + stadt 
+       + "&units=metric&appid="
+       + this.apiKey
+       )
+       .then((response) => {
+        if (!response.ok) {
+            throw new Error("Stadt nicht gefunden.");
+        }
+        return response.json();
+    })
+    .then((data) => this.displaywetter(data))
+    .catch((error) => {
+        document.querySelector(".wetter").classList.remove("lädt");
+        document.querySelector(".stadt").innerText = "";
+        document.querySelector(".beschreibung").innerText = "";
+        document.querySelector(".temperatur").innerText = "";
+        document.querySelector(".wind").innerText = "";
+        document.querySelector("#text").innerText = error.message;
+        lampeAus();
+    });
+},
+   //Von der API Seite die Attributen schreiben und mit den Attributen unseres Systems einbinden
+   displaywetter: function(data) {
+       const { name } = data;
+       let { icon, description } = data.weather[0];
+       const { temp } = data.main;
+       const { speed } = data.wind;  
+       document.querySelector(".stadt").innerText = name;
+       document.querySelector(".icon").src="http://openweathermap.org/img/wn/" + icon + ".png";
+       document.querySelector(".beschreibung").innerText = description;
+       document.querySelector(".temperatur").innerText = temp + "°C";
+       document.querySelector(".wind").innerText = "Wind Geschwindigkeit " + speed + " Km/h"; 
+       document.querySelector(".wetter").classList.remove("lädt");
+       description = description.toLowerCase()
+       if (description.includes("cloud") || description.includes("cloud")){
+        orangeBlinkend();
+        }else if(description.includes("fog") || description.includes("rain")){
+        rotBlinkend();
+        }else if(description.includes("clear") || description.includes("sun")){
+        grunBlinkend();
+    }
+   },
+   //Die Funktion "suchen" erstellen
+   suchen: function(){
+       this.fetchwetter(document.querySelector(".suchenbar").value)
+       autocompleteStadt();
+   },
+};
+ const autocompleteStadt = function() {
+  const input = document.querySelector(".suchenbar");
+  const datalist = document.querySelector("#städte");
+  input.addEventListener("input", function() {
+    const value = input.value;
+    const options = datalist.getElementsByTagName("option");
+    for (let i = 0; i < options.length; i++) {
+      const optionValue = options[i].value;
+      if (optionValue.includes(value)) {
+        options[i].style.display = "block";
+      } else {
+        options[i].style.display = "none";
+      }
+    }
+  });
+  datalist.addEventListener("click", function(event) {
+    const option = event.target;
+    if (option.tagName === "OPTION") {
+      input.value = option.value;
+      wetter.suchen();
+      wetter.autocompleteStadt();
+    }
+  });
+};
+   //Die Funktion durch den Click Button betätigen
+document.querySelector(".suchen button").addEventListener("click", function(){
+   wetter.suchen();
+});
+   //Die Funktion durch Enter drücken betätigen
+document.querySelector(".suchenbar").addEventListener("keyup", function(event){
+   if(event.key == "Enter"){
+       wetter.suchen();
+   }
+});
 
+//2.Code
+// liest und speichert den Inhalt HTML-Elements durch ID name
+document.getElementById("text").innerHTML = "";
+
+//Variable Wetter wird später mit Weather-API verbunden um richtigen Temperatur-Wert zu erhalten
+
+
+//Rotes Licht anschalten
+function rotBlinkend() {
+    lampeAus(); //alle lampen ausshalten
+  document.getElementById('stopLight').style.backgroundColor = "red"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe rot
+  document.getElementById("text").innerHTML = "Kaum erneubare Energie"; //an folgende html Element folgende text ausgeben
+
+}
+
+//Oranges Licht anschalten
+function orangeBlinkend() {
+    lampeAus(); //alle lampen ausschalten
+  document.getElementById('slowLight').style.backgroundColor = "orange"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe orange
+  document.getElementById("text").innerHTML = "Mittelmäßige erneubare Energie"; //an folgende html Element folgende text ausgeben
+}
+
+//Grünes Licht anschalten
+function grunBlinkend() {
+    lampeAus(); //alle lampen ausschalten
+  document.getElementById('goLight').style.backgroundColor = "green"; //liest der lampe von html-elements durch ID name und speichert mit hintergrundfarbe rot
+  document.getElementById("text").innerHTML = "Viel erneubare Energie"; //an folgende html Element folgende text ausgeben
+}
+
+//Funktion alle drei Lichter der Ampel ausschalten
+function lampeAus() {
+  document.getElementById('stopLight').style.backgroundColor = "black"; 
+  document.getElementById('slowLight').style.backgroundColor = "black";
+  document.getElementById('goLight').style.backgroundColor = "black";
+}
+</script>
 </html>
