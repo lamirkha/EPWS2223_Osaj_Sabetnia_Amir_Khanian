@@ -36,7 +36,7 @@ mdl-layout--fixed-tabs">
   <br>
   <br>
 
-<!-- Simple list -->
+<!--list -->
 <style>
   .demo-list-item {
     width: 1000px;
@@ -271,6 +271,9 @@ mdl-layout--fixed-tabs">
 
  
  <script>
+  
+
+
   var checkbox1 = document.getElementById("checkbox1");
   var checkbox2 = document.getElementById("checkbox2");
   var checkbox3 = document.getElementById("checkbox3");
@@ -279,6 +282,7 @@ mdl-layout--fixed-tabs">
   var ul = document.getElementById("filterList");
   var li = ul.getElementsByTagName("li");
   
+  //code zu Filtern beim drücken auf Checkboxen
   function filterList() {
     var checkbox1Checked = checkbox1.checked;
     var checkbox2Checked = checkbox2.checked;
