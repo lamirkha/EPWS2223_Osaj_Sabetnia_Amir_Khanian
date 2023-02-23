@@ -35,6 +35,50 @@
         margin-left: 12px;
       }
       
+      .mdl-layout__header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-height: 64px;
+    max-height: 1000px;
+    z-index: 3;
+    background-color: rgba(0, 153, 153, 1);
+    color: rgb(255,255,255);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-property: max-height,box-shadow
+}
+.mdl-layout__tab-bar {
+    height: 96px;
+    margin: 0;
+    width: calc(100% - 112px);
+    padding: 0 0 0 56px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: rgba(0, 153, 153, 1);
+    overflow-y: hidden;
+    overflow-x: scroll
+}
+      
     </style>
 
   </head>
@@ -45,7 +89,7 @@ mdl-layout--fixed-tabs">
 <header class="mdl-layout__header">
 <div class="mdl-layout__header-row">
 <!-- Title -->
-<span class="mdl-layout-title" style=" margin: 0px auto; text-align: center; margin-top: 20px; font-size: 1cm; font-family: Righteous;">ENERGEASY</span>
+<img src="./bild/Group 67.png" style="margin: 0px auto; text-align: center; height: 50px; width: 299dp;">
 </div>
 <!-- Tabs -->
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
@@ -60,7 +104,7 @@ mdl-layout--fixed-tabs">
 
 <main class="mdl-layout__content">
   <br>
-  <h2 style= "text-align: center; margin-top: 15mm; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(50, 50, 50);"><b>Ökostrom</b></h2>
+  <h2 style= "text-align: center; margin-top: 15mm; font-family: arial; color: rgb(50, 50, 50);"><b>Stromanbieter</b></h2>
   <br>
   <br>
   <input type="checkbox" id="checkbox1" margin-left="12px">Normalstrom
@@ -69,18 +113,11 @@ mdl-layout--fixed-tabs">
   <br>
   <input id="search-input" type="text" placeholder="Nach Produkt suchen">
   <button id="search-button">Suchen</button>
-  <button id="sort-rating-asc-button">Nach Bewertung aufsteigend sortieren</button>
-  <button id="sort-rating-desc-button">Nach Bewertung absteigend sortieren</button>
+  <button id="sort-rating-desc-button">Nach Bewertung sortieren</button>
 
   <div id="product-list">
-   
     
-  <ul id="filterList" class="demo-list-item mdl-list" style="position: relative; left: 200px; list-style: none;">
-
-    <li data-option="1" >
-      <img src="https://images.utopia.de/be5PuYets2CyyT2LDsIwqVqNkEty-fJR37APOZ3K5lE/rt:fill/w:297/h:278/g:ce/plain/2016/12/die-besten-oekostromanbieter_z_170824-oekostrom-plus-640x600.jpg" alt="">
-    </li>
-      
+   
   </div>
   <form>
     <label for="Anbieter">Bitte suchen Sie den Anbieter aus:</label>
@@ -128,26 +165,9 @@ mdl-layout--fixed-tabs">
 
 <div id="output"></div>
  <script>
-      var checkbox1 = document.getElementById("checkbox1");
-      var checkbox2 = document.getElementById("checkbox2");
-      var ul = document.getElementById("filterList");
-      var li = ul.getElementsByTagName("li");
-      function filterList() {
-    var checkbox1Checked = checkbox1.checked;
-    var checkbox2Checked = checkbox2.checked;
-    for (var i = 0; i < li.length; i++) {
-      var option = li[i].getAttribute("data-option");
-  
-      if ((checkbox1Checked && option === "1") ||
-          (checkbox2Checked && option === "2")) {
-        li[i].style.display = "";
-      } else {
-        li[i].style.display = "none";
-      }
-    }
-  }
-  checkbox1.addEventListener("change", filterList);
-  checkbox2.addEventListener("change", filterList);
+     
+     
+
       const products = [
         {
           name: "E.ON",
@@ -224,14 +244,15 @@ mdl-layout--fixed-tabs">
       const productList = document.getElementById("product-list");
       const searchInput = document.getElementById("search-input");
       const searchButton = document.getElementById("search-button");
-      const sortRatingAscButton = document.getElementById("sort-rating-asc-button");
       const sortRatingDescButton = document.getElementById("sort-rating-desc-button");
       const submitButton = document.getElementById("submit-button");
       const productsSelect = document.getElementById("Anbieter");
       const ratingSelect = document.getElementById("bewertung");
       const commentsTextarea = document.getElementById("comments");
-      const outputDiv = document.getElementById("output");
-
+      
+  
+  
+  
       function displayProducts(productArray) {
         productList.innerHTML = "";
         
@@ -260,17 +281,14 @@ productElement.appendChild(imageElement);
       }
       
       displayProducts(products);
-
+    
+      
       searchButton.addEventListener("click", function() {
         const searchTerm = searchInput.value.toLowerCase();
         const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
         displayProducts(filteredProducts);
       });
 
-      sortRatingAscButton.addEventListener("click", function() {
-        const sortedProducts = products.sort((a, b) => a.rating - b.rating);
-        displayProducts(sortedProducts);
-      });
       sortRatingDescButton.addEventListener("click", function() {
         const sortedProducts = products.sort((a, b) => b.rating - a.rating);
         displayProducts(sortedProducts);
@@ -284,5 +302,3 @@ productElement.appendChild(imageElement);
     </script>
   </body>
 </html>
-
-  

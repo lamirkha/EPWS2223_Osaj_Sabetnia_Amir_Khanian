@@ -17,7 +17,7 @@ mdl-layout--fixed-tabs">
 <header class="mdl-layout__header">
 <div class="mdl-layout__header-row">
 <!-- Title -->
-<span class="mdl-layout-title" style=" margin: 0px auto; text-align: center; margin-top: 20px; font-size: 1cm; font-family: Righteous;">ENERGEASY</span>
+<img src="./bild/Group 67.png" style="margin: 0px auto; text-align: center; height: 50px; width: 299dp;">
 </div>
 <!-- Tabs -->
 <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
@@ -32,7 +32,7 @@ mdl-layout--fixed-tabs">
 <main class="mdl-layout__content">
 
   <br>
-  <h2 style= "text-align: center; margin-top: 15mm; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(50, 50, 50);"><b>AKTUELLE BERICHTE</b></h2>
+  <h2 style= "text-align: center; margin-top: 15mm; font-family: arial; color: rgb(50, 50, 50);"><b>AKTUELLE BERICHTE</b></h2>
   <br>
   <br>
 
@@ -44,6 +44,49 @@ mdl-layout--fixed-tabs">
 
   .hidden {
   display: none;
+  }
+    .mdl-layout__header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-height: 64px;
+    max-height: 1000px;
+    z-index: 3;
+    background-color: rgba(0, 153, 153, 1);
+    color: rgb(255,255,255);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-property: max-height,box-shadow
+}
+.mdl-layout__tab-bar {
+    height: 96px;
+    margin: 0;
+    width: calc(100% - 112px);
+    padding: 0 0 0 56px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: rgba(0, 153, 153, 1);
+    overflow-y: hidden;
+    overflow-x: scroll
 }
   </style>
 
@@ -57,7 +100,7 @@ mdl-layout--fixed-tabs">
 
 
     <li data-option="1">
-      <img src="./bild/bild1.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+      <img src="./bild/bild1.jpg" alt="Bild" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
       <span class="mdl-list__item-primary-content" style="display: inline-block;">      
         <h3> Solar-Start-up Enpal verdoppelt <br>  Bewertungauf 2,25 Milliarden Euro</h3>       
       </span>    
@@ -70,7 +113,7 @@ mdl-layout--fixed-tabs">
        
 
     <li data-option="1">
-      <img src="./bild/bild2.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+      <img src="./bild/bild2.jpg" alt="Bild" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
       <span class="mdl-list__item-primary-content" style="display: inline-block;">
         <h3> Uniper rechnet mit deutlich <br> geringeren Verlusten für 2022</h3>
       </span>
@@ -84,7 +127,7 @@ mdl-layout--fixed-tabs">
       
 
        <li data-option="2">
-        <img src="./bild/bild3.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+        <img src="./bild/bild3.jpg" alt="Bild" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
         <span class="mdl-list__item-primary-content" style="display: inline-block;">
           <h3> Bund entlastet Gas- und <br>Wärmekunden mit 4,3 Milliarden</h3>
         </span>
@@ -98,7 +141,7 @@ mdl-layout--fixed-tabs">
          
 
          <li data-option="3">
-          <img src="./bild/bild4.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+          <img src="./bild/bild4.jpg" alt="Bild" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
           <span class="mdl-list__item-primary-content" style="display: inline-block;">
             <h3> Stadtwerke erwarten Verdoppelung<br> der Gas- und Stromtarife</h3>
           </span>
@@ -111,7 +154,7 @@ mdl-layout--fixed-tabs">
 
          
          <li data-option="1">
-          <img src="./bild/bild5.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+          <img src="./bild/bild5.jpg" alt="Bild" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
           <span class="mdl-list__item-primary-content" style="display: inline-block;">
             <h3> Wirtschaft warnt wegen<br> Energiepreiskrise vor Abwanderung</h3>
           </span>
@@ -124,7 +167,7 @@ mdl-layout--fixed-tabs">
 
 
            <li data-option="4">
-            <img src="./bild/bild6.jpg" alt="Description of Image 1" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
+            <img src="./bild/bild6.jpg" alt="Bild" width="250" height="180" style="float: right; margin-right: 10px; margin-top: 15px;">
             <span class="mdl-list__item-primary-content" style="display: inline-block;">
               <h3> Siemens Energy baut bei Stromerzeugung die<br> Zusammenarbeit mit dem Irak aus</h3>
             </span>
